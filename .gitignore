@@ -1,0 +1,17 @@
+node_modules/
+dist/
+
+# Ignore ALL environment files
+.env
+.env.*
+
+__pycache__/
+*.pyc
+.pytest_cache/
+.venv/
+venv/
+coverage/
+*.log
+.DS_Store
+.idea/
+.vscode/

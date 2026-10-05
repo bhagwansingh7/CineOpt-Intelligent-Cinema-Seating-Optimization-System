@@ -1,0 +1,36 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html { -webkit-text-size-adjust: 100%; }
+  body { @apply bg-paper font-sans text-ink antialiased; }
+  h1, h2, h3 { @apply font-display tracking-tight; }
+  :focus-visible { @apply outline outline-2 outline-offset-2 outline-velvet; }
+}
+
+@layer components {
+  .card { @apply rounded-xl border border-line bg-white shadow-sm; }
+  .btn { @apply inline-flex items-center justify-center gap-2 rounded-lg px-4 py-2.5 text-sm font-semibold transition-colors disabled:cursor-not-allowed disabled:opacity-50; }
+  .btn-primary { @apply btn bg-velvet text-white hover:bg-velvet-dark; }
+  .btn-secondary { @apply btn border border-line bg-white text-ink hover:bg-paper; }
+  .btn-ghost { @apply btn text-ink hover:bg-velvet-light; }
+  .btn-danger { @apply btn bg-red-600 text-white hover:bg-red-700; }
+  .input { @apply w-full rounded-lg border border-line bg-white px-3 py-2.5 text-sm placeholder:text-ink/40 focus:border-velvet focus:outline-none focus:ring-2 focus:ring-velvet/20; }
+  .label { @apply mb-1 block text-sm font-medium text-ink/80; }
+  .chip { @apply inline-flex items-center rounded-md bg-velvet-light px-2 py-1 text-xs font-semibold text-velvet-dark; }
+}
+
+/* One orchestrated moment: the demo seats on the landing page light up once. */
+@keyframes seat-light {
+  from { fill: #E9E4F0; transform: scale(0.9); }
+  to { fill: #12906B; transform: scale(1); }
+}
+.seat-light {
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: seat-light 0.5s ease-out both;
+}
+@media (prefers-reduced-motion: reduce) {
+  .seat-light { animation: none; fill: #12906B; }
+}
